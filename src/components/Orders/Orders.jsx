@@ -51,7 +51,7 @@ export default function Orders() {
     )
       .then(res => {
         toast.success("Redirecting to payment...");
-        window.open(res.data.session.url, "_self");
+       window.location.href = res.data.session.url;
         setisCash(false);
       })
       .catch(() => toast.error("Error in online payment"))
