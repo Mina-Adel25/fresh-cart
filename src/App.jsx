@@ -24,6 +24,9 @@ import Orders from './components/Orders/Orders';
 import Allorders from './components/Allorders/Allorders';
 import WishlistContext from './Context/WishlistContext';
 import Wishlist from './components/Wishlist/Wishlist';
+import ForgotPassword from './components/Forgot-password/ForgotPassword';
+import VerifyCode from './components/VerifyCode/VerifyCode';
+import ResetPassword from './components/ResetPassword/ResetPassword';
 
 const Browser = createBrowserRouter(
   [
@@ -42,8 +45,12 @@ const Browser = createBrowserRouter(
         { path: "orders", element: <ProtectedRote><Orders /></ProtectedRote> },
         { path: "allorders", element: <ProtectedRote><Allorders /></ProtectedRote> },
         { path: "wishlist", element: <ProtectedRote><Wishlist /></ProtectedRote> },
+
         { path: "login", element: <AuthRoute><Login /></AuthRoute> },
         { path: "register", element: <AuthRoute><Register /></AuthRoute> },
+        { path: "forgot-password", element: <AuthRoute><ForgotPassword /></AuthRoute> },
+        { path: "verify-code", element: <AuthRoute><VerifyCode /></AuthRoute> },
+        { path: "reset-password", element: <AuthRoute><ResetPassword /></AuthRoute> },
         { path: "*", element: <NotFound /> },
       ],
     },

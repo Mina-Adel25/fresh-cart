@@ -5,6 +5,7 @@ import { ThreeDots } from 'react-loader-spinner';
 import { useNavigate, Link } from 'react-router-dom';
 import * as yup from 'yup';
 import { authcontext } from '../../Context/AuthContext';
+import img from '../../assets/images/computer-login-animate.svg'
 
 export default function Login() {
   const { setToken } = useContext(authcontext);
@@ -57,17 +58,14 @@ export default function Login() {
   });
 
   return (
-    <div className="flex justify-center items-center md:h-[82vh] bg-gradient-to-br px-3 mt-4 md:mt-0">
+    <div className="md:flex justify-center items-center md:h-[82vh] bg-gradient-to-br  px-3 mt-4 md:mt-0">
+      <div className="md:w-1/3">
+            <img src={img} alt="" className='w-full md:h-auto' />
+            </div>
       <form
-        className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8"
+        className="w-full max-w-md bg-white rounded-2xl shadow-2xl pt-0 md:pt-8 p-8"
         onSubmit={myFormik.handleSubmit}
       >
-        {/* Logo / Brand */}
-        <div className="flex justify-center mb-6">
-          <div className="h-14 w-14 rounded-full bg-green-600 flex items-center justify-center shadow-lg">
-            <i className="fa-solid fa-right-to-bracket text-white text-xl"></i>
-          </div>
-        </div>
 
         {/* Title */}
         <h2 className="text-2xl font-bold text-center text-gray-800  mb-2">
@@ -143,6 +141,11 @@ export default function Login() {
           {myFormik.errors.password && myFormik.touched.password && (
             <p className="mt-2 text-sm text-red-600">{myFormik.errors.password}</p>
           )}
+        </div>
+        <div className="text-right mb-5">
+          <Link to="/forgot-password" className="text-green-600 hover:underline">
+            Forgot Password 
+          </Link>
         </div>
 
         {/* Submit Button */}
